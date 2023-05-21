@@ -74,6 +74,17 @@
                   </div>
 
                   <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control @error('username') is-invalid @enderror" id="username" name="username"
+                      type="text" value="{{ old('username') }} ">
+                    @error('username')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control @error('email') is-invalid @enderror" id="email" name="email"
                       type="email" value="{{ old('email') }} ">

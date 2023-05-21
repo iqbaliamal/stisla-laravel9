@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="AddUserLabel">Tambah Admin</h5>
+        <h5 class="modal-title" id="AddUserLabel">Tambah User</h5>
         <button class="close" data-dismiss="modal" type="button" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -20,12 +20,6 @@
             <label for="last_name">Last Name</label>
             <small class="text-danger">*</small>
             <input class="form-control" id="last_name" name="last_name" type="text" placeholder="contoh: Iqbal"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="username">Username</label>
-            <small class="text-danger">*</small>
-            <input class="form-control" id="username" name="username" type="text" placeholder="contoh: Iqbal"
               required>
           </div>
           <div class="form-group mb-2">

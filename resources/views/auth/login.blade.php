@@ -52,9 +52,9 @@
                   @csrf
 
                   <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Username / Email</label>
                     <input class="form-control @error('email') is-invalid @enderror" id="email" name="email"
-                      type="email" value="{{ old('email') }} " tabindex="1" required autofocus>
+                      type="text" value="{{ old('email') }} " tabindex="1" required autofocus>
                     @error('email')
                       <div class="invalid-feedback">
                         {{ $message }}

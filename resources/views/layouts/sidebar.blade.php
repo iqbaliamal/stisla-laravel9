@@ -12,18 +12,16 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="{{ request()->is('admin/users') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-user"></i>
-          <span>Users</span>
+      <li class="{{ request()->is('admin/articles') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.articles.index') }}"><i class="fas fa-post"></i>
+          <span>Artikel</span>
         </a>
       </li>
       <li class="dropdown">
-        <a class="nav-link has-dropdown" href="#"><i class="fas fa-exclamation"></i> <span>Errors</span></a>
+        <a class="nav-link has-dropdown" href="#"><i class="fas fa-users"></i> <span>Users</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="errors-503.html">503</a></li>
-          <li><a class="nav-link" href="errors-403.html">403</a></li>
-          <li><a class="nav-link" href="errors-404.html">404</a></li>
-          <li><a class="nav-link" href="errors-500.html">500</a></li>
+          <li><a class="nav-link" href="{{ route('admin.users.index') }}">Admin</a></li>
+          <li><a class="nav-link" href="{{ route('admin.penulis.index') }}">Penulis</a></li>
         </ul>
       </li>
     </ul>

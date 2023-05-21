@@ -6,13 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class UserController extends Controller
+class PenulisController extends Controller
 {
     public function index()
     {
-        $users = User::where('role', 'admin')->get();
+        $users = User::where('role', 'penulis')->get();
 
-        return view("pages.user.index", [
+        return view("pages.penulis.index", [
             "users" => $users,
             "title" => "Users"
         ]);
@@ -52,7 +52,7 @@ class UserController extends Controller
             "email" => $request->email,
             "password" => bcrypt("password"),
             "avatar" => $urlavatarFile ?? null,
-            "role" => "admin",
+            "role" => "penulis",
         ]);
 
         return response()->json([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
@@ -9,7 +10,28 @@ class HomeController extends Controller
 {
   public function index()
   {
-    return view('pages.index')->with('title', 'Home');
+    $articles = Article::latest()->with('user')->get();
+
+    return view('pages.home.index')->with([
+      'articles' => $articles,
+      'title' => 'Home'
+    ]);
+  }
+
+  public function admin()
+  {
+    return view('pages.index');
+  }
+
+  public function detail($id)
+  {
+    $article = Article::findOrFail($id);
+
+    return view('pages.home.detail', [
+      'article' => $article->load('user'),
+      'comments' => $article->comments()->with('article')->get(),
+      'title' => 'Comments'
+    ]);
   }
 
   /*Language Translation*/

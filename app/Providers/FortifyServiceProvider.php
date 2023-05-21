@@ -40,6 +40,20 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($email . $request->ip());
         });
 
+        Fortify::authenticateUsing(function (Request $request) {
+            $username = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+            $user = User::where($username, $request->email)
+                ->orWhere('username', $request->email)
+                ->first();
+
+            if (
+                $user &&
+                Hash::check($request->password, $user->password)
+            ) {
+                return $user;
+            }
+        });
+
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
